@@ -7,8 +7,8 @@ const dane = [
     pozycje: [
       { kwota: 111.11, symbol: 'XXX' },
       { kwota: 222.22, symbol: 'YYY' },
-      { kwota: 333.33, symbol: 'ZZZ' },
-    ],
+      { kwota: 333.33, symbol: 'ZZZ' }
+    ]
   },
   {
     numerPelny: 'F2',
@@ -18,8 +18,8 @@ const dane = [
     pozycje: [
       { kwota: 111.11, symbol: 'XXX' },
       { kwota: 222.22, symbol: 'YYY' },
-      { kwota: 333.33, symbol: 'ZZZ' },
-    ],
+      { kwota: 333.33, symbol: 'ZZZ' }
+    ]
   },
   {
     numerPelny: 'F3',
@@ -29,8 +29,8 @@ const dane = [
     pozycje: [
       { kwota: 111.11, symbol: 'XXX' },
       { kwota: 222.22, symbol: 'YYY' },
-      { kwota: 333.33, symbol: 'ZZZ' },
-    ],
+      { kwota: 333.33, symbol: 'ZZZ' }
+    ]
   },
   {
     numerPelny: 'F4',
@@ -40,8 +40,8 @@ const dane = [
     pozycje: [
       { kwota: 111.11, symbol: 'XXX' },
       { kwota: 222.22, symbol: 'YYY' },
-      { kwota: 333.33, symbol: 'Z2Z' },
-    ],
+      { kwota: 333.33, symbol: 'Z2Z' }
+    ]
   },
   {
     numerPelny: 'F5',
@@ -51,9 +51,9 @@ const dane = [
     pozycje: [
       { kwota: 111.11, symbol: 'XXX' },
       { kwota: 222.22, symbol: 'YYY' },
-      { kwota: 333.33, symbol: 'ZZZ' },
-    ],
-  },
+      { kwota: 333.33, symbol: 'ZZZ' }
+    ]
+  }
 ]
 
 const aggregateData = (dataArr, category, key, value) => {
@@ -71,13 +71,13 @@ const aggregateData = (dataArr, category, key, value) => {
               (acc3, curr3) =>
                 acc3.map(
                   (el, i) =>
-                    (el += curr3[key] === keysArr[i] ? curr3[value] : 0),
+                    (el += curr3[key] === keysArr[i] ? curr3[value] : 0)
                 ),
-              acc2,
+              acc2
             ),
-          acc1,
+          acc1
         ),
-    keysArr.map(el => 0),
+    keysArr.map(el => 0)
   )
 
   const result = {}
@@ -98,8 +98,8 @@ console.log(filterData(dane, 'data', '2018-01-10', '2018-01-30'))
 // {numerPelny: "F3", miesiac: 1, rok: 2018, data: "2018-01-21", pozycje: Array(3)}
 
 const sortData = (dataArr, firstCat, secondCat) =>
-  dataArr.sort(
-    (a, b) => b[firstCat] - a[firstCat] || b[secondCat] - a[secondCat],
+  [...dataArr].sort(
+    (a, b) => b[firstCat] - a[firstCat] || b[secondCat] - a[secondCat]
   )
 
 console.log(sortData(dane, 'rok', 'miesiac'))
